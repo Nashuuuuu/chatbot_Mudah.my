@@ -1,0 +1,17 @@
+version: "3.1"
+
+rules:
+  - rule: Welcome user on greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say bye on goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Direct all other questions to Gemini Knowledge Base
+    steps:
+      - intent: nlu_fallback
+      - action: action_call_gemini_api

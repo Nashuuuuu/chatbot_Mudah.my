@@ -1,0 +1,26 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - selamat pagi
+    - assalamualaikum
+    - hi welcome
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - selamat tinggal
+    - terima kasih banyakk
+    - ok thank you
+
+- intent: nlu_fallback
+  examples: |
+    - how to sell books
+    - how do I check phone specs from a seller
+    - what if the seller scam me
+    - how to know if the clothes fit me
+    - verify the edition of the book
+    - can we make cod to buy phone

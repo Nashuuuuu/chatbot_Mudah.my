@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mudah.my - Malaysia's Largest Marketplace</title>
+  <style>
+    /* ── RESET ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e63327;
+    }
+
+    .logo-text span {
+      color: #222;
+    }
+
+    /* ── NAV ── */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .nav-item > a {
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .nav-item > a:hover {
+      background: #f5f5f5;
+    }
+
+    .nav-item > a .arrow {
+      font-size: 10px;
+      color: #888;
+    }
+
+    /* ── HEADER RIGHT ── */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .icon-btn:hover {
+      background: #eee;
+    }
+
+    .post-btn {
+      background: #f5c518;
+      color: #222;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .post-btn:hover {
+      background: #e5b608;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      background: #f5f5f5;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 12px 20px;
+    }
+
+    .search-box {
+      display: flex;
+      border: 2px solid #e63327;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .search-cat {
+      border: none;
+      border-right: 1px solid #ddd;
+      padding: 0 14px;
+      background: #fff;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+      outline: none;
+      min-width: 160px;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      padding: 11px 14px;
+      font-size: 14px;
+      outline: none;
+      color: #333;
+    }
+
+    .search-input::placeholder {
+      color: #aaa;
+    }
+
+    .search-btn {
+      background: #e63327;
+      color: #fff;
+      border: none;
+      padding: 0 28px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+
+    .search-btn:hover {
+      background: #c0392b;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1280px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-left {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 32px 36px;
+      flex: 0 0 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-left h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #222;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .sell-btn {
+      background: #f5c518;
+      color: #222;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 0;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      flex: 1;
+      text-align: center;
+    }
+
+    .sell-btn .free-tag {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #e63327;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 10px;
+    }
+
+    .find-btn {
+      background: #29b6d6;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 0;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      flex: 1;
+      text-align: center;
+    }
+
+    .find-btn:hover {
+      background: #22a0be;
+    }
+
+    .hero-sub {
+      display: flex;
+      margin-top: 6px;
+    }
+
+    .hero-sub span {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ── CAROUSEL ── */
+    .hero-right {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #1a6fc4, #29b6d6);
+      min-height: 230px;
+    }
+
+    .carousel-slide {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 28px 60px 28px 36px;
+      color: #fff;
+    }
+
+    .carousel-badge {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+
+    .carousel-slide h2 {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .book-btn {
+      background: #e63327;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .carousel-sub {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 8px;
+    }
+
+    .carousel-car {
+      position: absolute;
+      right: 20px;
+      bottom: 0;
+      font-size: 100px;
+      opacity: 0.18;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-nav.prev { left: 10px; }
+    .carousel-nav.next { right: 10px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #fff;
+    }
+
+    /* ── CATEGORIES ── */
+    .section-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: #002f34;
+      margin-bottom: 16px;
+    }
+
+    .cat-grid {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .cat-item {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: center;
+      cursor: pointer;
+      min-width: 88px;
+      transition: all 0.15s;
+    }
+
+    .cat-item:hover {
+      border-color: #e63327;
+      box-shadow: 0 2px 8px rgba(230, 51, 39, 0.1);
+    }
+
+    .cat-icon {
+      font-size: 26px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .cat-label {
+      font-size: 11px;
+      color: #444;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── TRENDING ── */
+    .trending-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .trending-header h2 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .trending-fire {
+      font-size: 18px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tab.active {
+      background: #e63327;
+      color: #fff;
+      border-color: #e63327;
+    }
+
+    .tab:hover:not(.active) {
+      background: #f5f5f5;
+    }
+
+    .tab-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e63327;
+      flex-shrink: 0;
+    }
+
+    .tab.active .tab-dot {
+      background: #fff;
+    }
+
+    /* ── LISTING GRID ── */
+    .listing-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .listing-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.15s;
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      border-color: #ccc;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 155px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      color: #bbb;
+      position: relative;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38px;
+      height: 38px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .card-info {
+      padding: 10px 12px;
+    }
+
+    .card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 3px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: #aaa;
+      display: flex;
+      gap: 6px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #fff;
+      border-top: 1px solid #e8e8e8;
+      margin-top: 30px;
+      padding: 30px 0 0;
+    }
+
+    footer .inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e63327;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #222;
+    }
+
+    .footer-desc {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.7;
+      max-width: 220px;
+    }
+
+    footer h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer ul li {
+      margin-bottom: 8px;
+    }
+
+    footer ul li a {
+      font-size: 12px;
+      color: #777;
+    }
+
+    footer ul li a:hover {
+      color: #e63327;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #eee;
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .footer-bottom a {
+      color: #aaa;
+      margin-left: 16px;
+    }
+
+    .footer-bottom a:hover {
+      color: #e63327;
+    }
+
+    /* ── FLOATING CHAT WIDGET ENGINE (RED ACCENTS) ── */
+    #mudah-chat-widget {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 10000;
+    }
+
+    .chat-ball {
+      width: 60px;
+      height: 60px;
+      background-color: #e63327; /* Updated to Match Site Red */
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .chat-ball:hover {
+      transform: scale(1.08);
+    }
+
+    .chat-ball svg {
+      width: 26px;
+      height: 26px;
+      fill: white;
+    }
+
+    .chat-box-window {
+      display: none;
+      width: 380px;
+      height: 550px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      overflow: hidden;
+      border: 1px solid #d1d5db;
+      flex-direction: column;
+    }
+
+    .chat-box-header {
+      background-color: #e63327; /* Updated to Match Site Red */
+      color: white;
+      padding: 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+    }
+
+    .chat-box-header .close-btn {
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* ── TYPING INDICATOR ANIMATION ── */
+    .typing-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #e9ecef;
+      border-radius: 8px;
+      align-self: flex-start;
+      margin-top: 5px;
+      max-width: 85%;
+    }
+
+    .typing-indicator span {
+      width: 6px;
+      height: 6px;
+      background: #777;
+      border-radius: 50%;
+      animation: bounce 1.3s infinite both;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1.2); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-top">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 32 L20 8 L34 32" stroke="#e63327" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M12 32 L20 16 L28 32" stroke="#29b6d6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="logo-text">mudah<span>.my</span></span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links">
+      <div class="nav-item"><a href="#">Autos <span class="arrow">▾</span></a></div>
+      <div class="nav-item"><a href="#">Property <span class="arrow">▾</span></a></div>
+      <div class="nav-item"><a href="#">Electronics <span class="arrow">▾</span></a></div>
+      <div class="nav-item"><a href="#">Jobs &amp; Services <span class="arrow">▾</span></a></div>
+      <div class="nav-item"><a href="#">All Categories</a></div>
+      <div class="nav-item"><a href="#" style="color:#888;">Help Center</a></div>
+      <div class="nav-item"><a href="#" style="color:#888;">Pro Niaga</a></div>
+    </nav>
+
+    <!-- Header Right Buttons -->
+    <div class="header-right">
+      <button class="icon-btn">👤</button>
+      <button class="icon-btn">💬</button>
+      <button class="post-btn">✏️ POST FREE AD</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── SEARCH BAR SECTION ── -->
+<div class="search-wrap">
+  <div class="search-box">
+    <select class="search-cat">
+      <option>All Categories</option>
+      <option>Autos</option>
+      <option>Property</option>
+      <option>Electronics</option>
+      <option>Jobs &amp; Services</option>
+      <option>Furniture</option>
+      <option>Pets</option>
+    </select>
+    <input class="search-input" type="text" placeholder="Search anything in Mudah.my"/>
+    <button class="search-btn">SEARCH</button>
+  </div>
+</div>
+
+<!-- ── MAIN GATEWAY GRID ── -->
+<div class="main">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <!-- Left Hero Action Box -->
+    <div class="hero-left">
+      <h1>Sell Faster &amp;<br>Find Great Deals</h1>
+      <div class="hero-btns">
+        <button class="sell-btn">
+          SELL
+          <span class="free-tag">FREE</span>
+        </button>
+        <button class="find-btn">FIND</button>
+      </div>
+      <div class="hero-sub">
+        <span>Snap it. Post it. Make RM</span>
+        <span>1M+ Fresh Offers</span>
+      </div>
+    </div>
+
+    <!-- Right Feature Carousel Banner -->
+    <div class="hero-right">
+      <div class="carousel-slide">
+        <div>
+          <div class="carousel-badge">🔵 mudahauto</div>
+          <h2>Inspect the Car<br>Before You Purchase</h2>
+          <button class="book-btn">📋 BOOK MY INSPECTION</button>
+          <p class="carousel-sub">Exclusively for Klang Valley. Terms &amp; Conditions apply.</p>
+        </div>
+      </div>
+      <div class="carousel-car">🚗</div>
+      <button class="carousel-nav prev">‹</button>
+      <button class="carousel-nav next">›</button>
+      <div class="carousel-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES GRID -->
+  <div class="section-label">Malaysia's Largest Online Marketplace</div>
+  <div class="cat-grid">
+    <div class="cat-item"><span class="cat-icon">🚗</span><span class="cat-label">All Cars</span></div>
+    <div class="cat-item"><span class="cat-icon">🏡</span><span class="cat-label">Property For Sale</span></div>
+    <div class="cat-item"><span class="cat-icon">🏍️</span><span class="cat-label">Motorcycles</span></div>
+    <div class="cat-item"><span class="cat-icon">🔑</span><span class="cat-label">Property For Rent</span></div>
+    <div class="cat-item"><span class="cat-icon">🔢</span><span class="cat-label">Number Plates</span></div>
+    <div class="cat-item"><span class="cat-icon">📱</span><span class="cat-label">Mobile Phones</span></div>
+    <div class="cat-item"><span class="cat-icon">⚙️</span><span class="cat-label">Car Accessories &amp; Parts</span></div>
+    <div class="cat-item"><span class="cat-icon">💼</span><span class="cat-label">Jobs</span></div>
+    <div class="cat-item"><span class="cat-icon">🐱</span><span class="cat-label">Pets</span></div>
+    <div class="cat-item"><span class="cat-icon" style="font-size:18px;color:#aaa;">• • •</span><span class="cat-label">View More...</span></div>
+  </div>
+
+  <!-- TRENDING TABS -->
+  <div class="trending-header">
+    <span class="trending-fire">🔥</span>
+    <h2>Trending Now</h2>
+  </div>
+  <div class="tabs">
+    <div class="tab active"><span class="tab-dot"></span>🚗 Cars</div>
+    <div class="tab"><span class="tab-dot"></span>🏠 Houses for Sale</div>
+    <div class="tab"><span class="tab-dot"></span>🏢 Apt for Rent</div>
+    <div class="tab"><span class="tab-dot"></span>🏍️ Motorcycles</div>
+    <div class="tab"><span class="tab-dot"></span>📱 Mobile Phones</div>
+    <div class="tab"><span class="tab-dot"></span>🐾 Pets</div>
+  </div>
+
+  <!-- DEMO LISTING PRODUCT CARDS -->
+  <div class="listing-grid">
+    <div class="listing-card">
+      <div class="card-img" style="background:#dce8f0;">🚙</div>
+      <div class="card-info">
+        <div class="card-price">RM 125,800</div>
+        <div class="card-title">Toyota Corolla Cross HYBRID GR S...</div>
+        <div class="card-meta"><span>2025</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#2a2a2a;">🚘</div>
+      <div class="card-info">
+        <div class="card-price">RM 79,888</div>
+        <div class="card-title">Peugeot 3008 ALLURE THP in Skud...</div>
+        <div class="card-meta"><span>2022</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#383838;">🚐</div>
+      <div class="card-info">
+        <div class="card-price">RM 195,000</div>
+        <div class="card-title">Toyota Alphard SC in Shah Alam, S...</div>
+        <div class="card-meta"><span>2021</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#e8c940;">🚗<div class="play-btn">▶</div></div>
+      <div class="card-info">
+        <div class="card-price">RM 53,788</div>
+        <div class="card-title">Mini Cooper in Old Klang Road, KUL</div>
+        <div class="card-meta"><span>2014</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#c8cdd2;">🏎️</div>
+      <div class="card-info">
+        <div class="card-price">RM 42,800</div>
+        <div class="card-title">Toyota Fortuner V TRD SPORTIVO i...</div>
+        <div class="card-meta"><span>2013</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#b8cfe0;">🚗</div>
+      <div class="card-info">
+        <div class="card-price">RM 98,800</div>
+        <div class="card-title">Honda CR-V 1.5 TC-P 4WD Full Spec</div>
+        <div class="card-meta"><span>2023</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#d8dcc8;">🚙</div>
+      <div class="card-info">
+        <div class="card-price">RM 62,000</div>
+        <div class="card-title">Proton X50 1.5 TGDI Flagship Plus</div>
+        <div class="card-meta"><span>2022</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#e0ceb8;">🚕</div>
+      <div class="card-info">
+        <div class="card-price">RM 35,500</div>
+        <div class="card-title">Perodua Myvi 1.5 AV CVT Full Spec</div>
+        <div class="card-meta"><span>2020</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#c4ccd4;">🚌<div class="play-btn">▶</div></div>
+      <div class="card-info">
+        <div class="card-price">RM 148,000</div>
+        <div class="card-title">Mercedes-Benz C200 AMG Facelift</div>
+        <div class="card-meta"><span>2019</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="card-img" style="background:#d0cce8;">🚗</div>
+      <div class="card-info">
+        <div class="card-price">RM 55,000</div>
+        <div class="card-title">Mazda CX-5 2.0 SKYACTIV-G GLS</div>
+        <div class="card-meta"><span>2021</span><span>|</span><span>Auto</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER SECTION ── -->
+<footer>
+  <div class="inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">mudah<span>.my</span></div>
+        <p class="footer-desc">Malaysia's largest online marketplace. Buy and sell anything easily and safely.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Safety Tips</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Report a Problem</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Cars</a></li>
+          <li><a href="#">Property</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Motorcycles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mudah.my Sdn. Bhd. (Demo Clone)</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── FLOATING CHAT WIDGET SYSTEM ── -->
+<div id="mudah-chat-widget">
+  <div class="chat-box-window" id="mudahChatBox">
+    <div class="chat-box-header">
+      <span>🏠 MudahSifu - Mudah AI Assistant</span>
+      <span class="close-btn" onclick="toggleMudahChat()">×</span>
+    </div>
+    <div id="chat-logs" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 13px; background: #fafafa;">
+      <div style="background: #e9ecef; padding: 10px; border-radius: 8px; max-width: 85%; align-self: flex-start;">
+        Hi! Welcome to Mudah Assistant Chatbot. How can I help you today?
+      </div>
+    </div>
+    <div style="display: flex; border-top: 1px solid #e0e0e0; padding: 10px; background: white;">
+      <input type="text" id="chat-input" placeholder="Type a message..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; outline: none;">
+      <button onclick="sendChatMessage()" style="background: #e63327; color: white; border: none; padding: 0 15px; margin-left: 5px; border-radius: 4px; cursor: pointer; font-weight: bold;">Send</button>
+    </div>
+  </div>
+  
+  <div class="chat-ball" onclick="toggleMudahChat()">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  </div>
+</div>
+
+<!-- ── RUNTIME SCRIPTS ── -->
+<script>
+  // Generates a unique session ID for conversation continuity on page load
+  const conversationSessionId = "session_" + Math.random().toString(36).substr(2, 9);
+
+  function toggleMudahChat() {
+    const wnd = document.getElementById('mudahChatBox');
+    wnd.style.display = (wnd.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  // Send message function to Rasa REST API
+  async function sendChatMessage() {
+    const inputField = document.getElementById('chat-input');
+    const message = inputField.value.trim();
+    if (!message) return;
+
+    // Append User Message to Window
+    appendMessage(message, 'user');
+    inputField.value = '';
+
+    // SHOW TYPING ANIMATION
+    const logs = document.getElementById('chat-logs');
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator';
+    typingDiv.id = 'typing-bubble';
+    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    logs.appendChild(typingDiv);
+    logs.scrollTop = logs.scrollHeight;
+
+    try {
+      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sender: conversationSessionId, message: message })
+      });
+      
+      const data = await response.json();
+      
+      // REMOVE TYPING ANIMATION
+      const bubble = document.getElementById('typing-bubble');
+      if (bubble) bubble.remove();
+      
+      // Append Bot Responses
+      data.forEach(reply => {
+        if (reply.text) appendMessage(reply.text, 'bot');
+      });
+    } catch (error) {
+      console.error("Error connecting to Rasa:", error);
+      const bubble = document.getElementById('typing-bubble');
+      if (bubble) bubble.remove();
+      appendMessage("Error: Could not reach chatbot server. Make sure Rasa server is running with --enable-api and --cors.", 'bot');
+    }
+  }
+
+  function appendMessage(text, sender) {
+    const logs = document.getElementById('chat-logs');
+    const msgDiv = document.createElement('div');
+    
+    msgDiv.style.padding = '10px';
+    msgDiv.style.borderRadius = '8px';
+    msgDiv.style.maxWidth = '85%';
+    msgDiv.style.whiteSpace = 'pre-line'; 
+    msgDiv.style.marginTop = '5px';
+    
+    if (sender === 'user') {
+      msgDiv.style.background = '#e63327'; /* Updated to Crimson Red */
+      msgDiv.style.color = 'white';
+      msgDiv.style.alignSelf = 'flex-end';
+      msgDiv.textContent = text;
+    } else {
+      msgDiv.style.background = '#e9ecef';
+      msgDiv.style.color = '#333';
+      msgDiv.style.alignSelf = 'flex-start';
+
+      // markdown processing
+      let formattedText = text;
+      formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      formattedText = formattedText.replace(/^\*\s+/gm, '• ');
+      msgDiv.innerHTML = formattedText;
+    }
+    
+    logs.appendChild(msgDiv);
+    logs.scrollTop = logs.scrollHeight;
+  }
+
+  // Interactive UI triggers
+  document.getElementById('chat-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendChatMessage();
+  });
+
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  const dots = document.querySelectorAll('.dot');
+  document.querySelector('.carousel-nav.next').addEventListener('click', () => {
+    let active = [...dots].findIndex(d => d.classList.contains('active'));
+    dots[active].classList.remove('active');
+    dots[(active + 1) % dots.length].classList.add('active');
+  });
+  document.querySelector('.carousel-nav.prev').addEventListener('click', () => {
+    let active = [...dots].findIndex(d => d.classList.contains('active'));
+    dots[active].classList.remove('active');
+    dots[(active - 1 + dots.length) % dots.length].classList.add('active');
+  });
+</script>
+
+</body>
+</html>

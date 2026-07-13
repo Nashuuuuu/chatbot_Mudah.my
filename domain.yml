@@ -1,0 +1,16 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - nlu_fallback
+
+actions:
+  - action_call_gemini_api
+
+responses:
+  utter_greet:
+    - text: "Hi! Welcome to Mudah Assistant Chatbot. How can I help you today?"
+
+  utter_goodbye:
+    - text: "[EN] Thank you for using Mudah Assistant. Have a great day!\n[BM] Terima kasih kerana menggunakan Mudah Assistant. Selamat tinggal!"
