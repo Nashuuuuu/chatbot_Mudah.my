@@ -24,4 +24,4 @@ RUN rasa train
 EXPOSE 10000
 
 # Start the Rasa server using the newly trained model automatically
-CMD ["run", "-p", "10000", "--enable-api", "--cors", "*"]
+CMD ["rasa", "run", "-p", "10000", "--enable-api", "--cors", "*"]
