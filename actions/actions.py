@@ -2,11 +2,12 @@ import os
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from google import genai 
+import google.generativeai as genai
 
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
-
-if not GEMINI_KEY:
+if GEMINI_KEY:
+    genai.configure(api_key=GEMINI_KEY)
+else:
     print("WARNING: GEMINI_API_KEY environment variable is not set!")
 
 class ActionCallGeminiApi(Action):
@@ -50,19 +51,20 @@ class ActionCallGeminiApi(Action):
         """
         
         try:
-            client = genai.Client(api_key=GEMINI_KEY)
-            
-            response = client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=user_message,
-                config={'system_instruction': system_instruction}
+            model = genai.GenerativeModel(
+                model_name="gemini-1.5-flash",
+                generation_config={"temperature": 0.3}
             )
             
+            full_prompt = f"System Instructions:\n{system_instruction}\n\nUser Question:\n{user_message}"
+            
+            response = model.generate_content(full_prompt)
             reply_text = response.text.strip()
+            
             dispatcher.utter_message(text=reply_text)
             
         except Exception as e:
             dispatcher.utter_message(text="[EN] System busy. Please try again.\n[BM] Sistem sibuk. Sila cuba lagi.")
-            print(f"Gemini API Error: {e}")
+            print(f"Gemini API Error details: {e}")
             
         return []
