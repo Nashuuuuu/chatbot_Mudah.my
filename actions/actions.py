@@ -2,14 +2,11 @@ import os
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import google.generativeai as genai
+from google import genai 
 
-# ✅ 1. Strictly look for the environment variable with NO hardcoded fallback string
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 
-if GEMINI_KEY:
-    genai.configure(api_key=GEMINI_KEY)
-else:
+if not GEMINI_KEY:
     print("WARNING: GEMINI_API_KEY environment variable is not set!")
 
 class ActionCallGeminiApi(Action):
@@ -20,10 +17,8 @@ class ActionCallGeminiApi(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        # 2. Grab the user's raw message
         user_message = tracker.latest_message.get("text")
         
-        # 3. Define the Knowledge Base Context for Gemini
         system_instruction = """
         You are an expert AI customer service assistant for the platform Mudah.my.
         Your job is to answer user queries accurately based ONLY on the platform rules provided below.
@@ -55,16 +50,15 @@ class ActionCallGeminiApi(Action):
         """
         
         try:
-            # 4. Initialize Gemini with your system blueprint
-            model = genai.GenerativeModel(
-                model_name="gemini-2.5-flash",
-                system_instruction=system_instruction
+            client = genai.Client(api_key=GEMINI_KEY)
+            
+            response = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=user_message,
+                config={'system_instruction': system_instruction}
             )
             
-            # 5. Generate the fluid response
-            response = model.generate_content(user_message)
             reply_text = response.text.strip()
-            
             dispatcher.utter_message(text=reply_text)
             
         except Exception as e:
