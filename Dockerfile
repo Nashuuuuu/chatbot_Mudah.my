@@ -24,4 +24,4 @@ RUN rasa train
 EXPOSE 10000
 
 # Start the Rasa server using the newly trained model automatically
-CMD rasa run actions -p 5055 & rasa run --enable-api --cors "*" --port 10000
+CMD rasa run actions -p 5055 & rasa run --enable-api --cors "*" --port $PORT
