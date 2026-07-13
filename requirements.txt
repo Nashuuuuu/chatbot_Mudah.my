@@ -1,3 +1,4 @@
 rasa==3.6.4
 google-generativeai
 rasa-sdk==3.6.2
+setuptools
